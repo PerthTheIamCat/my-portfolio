@@ -10,5 +10,5 @@
 body {
   background: #14181A;
   color: #FFFFFF;
-  font-family: Arial, Helvetica, sans-serif, var(--font-kanit);
+  font-family: var(--font-kanit) ;
 }
