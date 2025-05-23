@@ -4,8 +4,6 @@ import { Kanit } from "next/font/google";
 
 const kanit = Kanit({
   subsets: ["latin"],
-  variable: "--font-kanit",
-  display: "swap",
   weight: ["400", "700"],
 });
 
@@ -21,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${kanit.className} antialiased`}>
+      <body className={`antialiased ${kanit.className}`}>
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>

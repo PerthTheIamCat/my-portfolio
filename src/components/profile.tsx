@@ -1,71 +1,19 @@
 "use client";
 import Image from "next/image";
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  useAnimationFrame,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import SpringFromAbove from "@/animation/SpringFromAbove";
+import dynamic from "next/dynamic";
+
+const StarField = dynamic(
+  () => import("@/components/RandomStars").then((m) => m.StarField),
+  { ssr: false },
+);
+import { useOrbit } from "@/util/Orbit";
 
 export default function Profile() {
   const radius = 120;
-
-  function useOrbit(initialAngle: number, radius: number, yScale = 1) {
-    const angle = useMotionValue(initialAngle);
-    const x = useTransform(
-      angle,
-      (a) => Math.cos((a * Math.PI) / 180) * radius,
-    );
-    const y = useTransform(
-      angle,
-      (a) => (Math.sin((a * Math.PI) / 180) * (radius * yScale)) / 2 + 100,
-    );
-    const zIndex = useTransform(angle, (a) => {
-      const normalized = a % 360;
-      return normalized > 170 && normalized < 350 ? 0 : 10;
-    });
-
-    useAnimationFrame((t) => {
-      angle.set(((t / 1000) * 60 + initialAngle) % 360);
-    });
-
-    return { x, y, zIndex };
-  }
-  function StarField({ count = 20 }: { count?: number }) {
-    const stars = Array.from({ length: count }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 1,
-      delay: Math.random() * 5,
-    }));
-
-    return (
-      <div className="absolute inset-0 -z-20">
-        {stars.map((star) => (
-          <motion.div
-            key={star.id}
-            className="absolute rounded-full bg-white opacity-70"
-            style={{
-              top: `${star.y}%`,
-              left: `${star.x}%`,
-              width: star.size,
-              height: star.size,
-            }}
-            animate={{ opacity: [0.2, 1, 0.2] }}
-            transition={{
-              duration: 2,
-              delay: star.delay,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
-    );
-  }
+  const radius2 = 240;
+  const scale = 0.8;
 
   const icons = [
     {
@@ -124,14 +72,14 @@ export default function Profile() {
   ];
 
   const orbitData2 = [
-    useOrbit(icons2[0].initialAngle, radius + 120, 0.8),
-    useOrbit(icons2[1].initialAngle, radius + 120, 0.8),
-    useOrbit(icons2[2].initialAngle, radius + 120, 0.8),
-    useOrbit(icons2[3].initialAngle, radius + 120, 0.8),
-    useOrbit(icons2[4].initialAngle, radius + 120, 0.8),
-    useOrbit(icons2[5].initialAngle, radius + 120, 0.8),
-    useOrbit(icons2[6].initialAngle, radius + 120, 0.8),
-    useOrbit(icons2[7].initialAngle, radius + 120, 0.8),
+    useOrbit(icons2[0].initialAngle, radius2, scale),
+    useOrbit(icons2[1].initialAngle, radius2, scale),
+    useOrbit(icons2[2].initialAngle, radius2, scale),
+    useOrbit(icons2[3].initialAngle, radius2, scale),
+    useOrbit(icons2[4].initialAngle, radius2, scale),
+    useOrbit(icons2[5].initialAngle, radius2, scale),
+    useOrbit(icons2[6].initialAngle, radius2, scale),
+    useOrbit(icons2[7].initialAngle, radius2, scale),
   ];
 
   return (
