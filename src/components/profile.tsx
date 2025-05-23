@@ -10,7 +10,7 @@ import {
 export default function Profile() {
   const radius = 120;
 
-  function useOrbit(initialAngle: number, radius: number) {
+  function useOrbit(initialAngle: number, radius: number, yScale = 1) {
     const angle = useMotionValue(initialAngle);
     const x = useTransform(
       angle,
@@ -18,11 +18,11 @@ export default function Profile() {
     );
     const y = useTransform(
       angle,
-      (a) => Math.sin((a * Math.PI) / 180) * (radius / 2),
+      (a) => (Math.sin((a * Math.PI) / 180) * (radius * yScale)) / 2 + 100,
     );
     const zIndex = useTransform(angle, (a) => {
       const normalized = a % 360;
-      return normalized > 200 && normalized < 350 ? 0 : 10;
+      return normalized > 170 && normalized < 350 ? 0 : 10;
     });
 
     useAnimationFrame((t) => {
@@ -35,28 +35,74 @@ export default function Profile() {
   const icons = [
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
-      initialAngle: 0,
+      initialAngle: 60,
     },
     {
-      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
-      initialAngle: 120,
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+      initialAngle: 180,
     },
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
-      initialAngle: 240,
+      initialAngle: 300,
+    },
+  ];
+
+  const icons2 = [
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+      initialAngle: 0,
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+      initialAngle: 45,
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+      initialAngle: 90,
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+      initialAngle: 135,
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+      initialAngle: 180,
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+      initialAngle: 225,
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+      initialAngle: 270,
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+      initialAngle: 315,
     },
   ];
 
   const orbitData = [
-    useOrbit(icons[0].initialAngle, radius),
     useOrbit(icons[1].initialAngle, radius),
+    useOrbit(icons[0].initialAngle, radius),
     useOrbit(icons[2].initialAngle, radius),
+  ];
+
+  const orbitData2 = [
+    useOrbit(icons2[0].initialAngle, radius + 120, 0.8),
+    useOrbit(icons2[1].initialAngle, radius + 120, 0.8),
+    useOrbit(icons2[2].initialAngle, radius + 120, 0.8),
+    useOrbit(icons2[3].initialAngle, radius + 120, 0.8),
+    useOrbit(icons2[4].initialAngle, radius + 120, 0.8),
+    useOrbit(icons2[5].initialAngle, radius + 120, 0.8),
+    useOrbit(icons2[6].initialAngle, radius + 120, 0.8),
+    useOrbit(icons2[7].initialAngle, radius + 120, 0.8),
   ];
 
   return (
     <div className="flex flex-col items-center justify-center">
       <motion.div
-        className="relative"
+        className="relative m-20"
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{
@@ -79,10 +125,23 @@ export default function Profile() {
             </motion.div>
           );
         })}
+        {icons2.map((icon, index) => {
+          const { x, y, zIndex } = orbitData2[index];
+
+          return (
+            <motion.div
+              key={`orbit2-${index}`}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              style={{ x, y, zIndex }}
+            >
+              <Image src={icon.src} alt="tech logo" width={40} height={40} />
+            </motion.div>
+          );
+        })}
         <motion.div
           className="z-0"
           animate={{
-            rotate: [-15, 15, -15],
+            rotate: [0, 15, 0],
           }}
           transition={{
             duration: 2,
@@ -92,7 +151,7 @@ export default function Profile() {
           }}
         >
           <Image
-            src="/images/profile3.png"
+            src="/images/profile.png"
             alt="profile image"
             width={300}
             height={300}
