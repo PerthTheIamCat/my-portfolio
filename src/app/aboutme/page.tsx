@@ -1,5 +1,10 @@
 import FadeInDiv from "@/animation/FadeInDiv";
 
+export const metadata = {
+  title: "My Portfolio - About Me",
+  description: "Learn more about me and my background.",
+};
+
 export default function AboutMe() {
   return (
     <FadeInDiv className="flex flex-col items-center justify-center">

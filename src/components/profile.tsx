@@ -32,6 +32,40 @@ export default function Profile() {
 
     return { x, y, zIndex };
   }
+  function StarField({ count = 20 }: { count?: number }) {
+    const stars = Array.from({ length: count }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 1,
+      delay: Math.random() * 5,
+    }));
+
+    return (
+      <div className="absolute inset-0 -z-20">
+        {stars.map((star) => (
+          <motion.div
+            key={star.id}
+            className="absolute rounded-full bg-white opacity-70"
+            style={{
+              top: `${star.y}%`,
+              left: `${star.x}%`,
+              width: star.size,
+              height: star.size,
+            }}
+            animate={{ opacity: [0.2, 1, 0.2] }}
+            transition={{
+              duration: 2,
+              delay: star.delay,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+    );
+  }
 
   const icons = [
     {
@@ -102,6 +136,7 @@ export default function Profile() {
 
   return (
     <div className="flex flex-col items-center justify-center">
+      <StarField count={30} />
       <SpringFromAbove className="relative m-20">
         {icons.map((icon, index) => {
           const { x, y, zIndex } = orbitData[index];
@@ -160,6 +195,19 @@ export default function Profile() {
       <SpringFromAbove delay={0.4}>
         <h2>A Computer Engineering student at Kasetsart University</h2>
       </SpringFromAbove>
+      <motion.div
+        animate={{
+          opacity: [0.2, 0.5, 0.8, 0.5, 0.2],
+          scale: [0.8, 1, 1.5, 1, 0.8],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeOut",
+        }}
+        className="absolute top-1/3 -z-10 h-[500px] w-[500px] -translate-y-1/3 rounded-full bg-radial from-blue-950 from-10% to-[#14181A] blur-3xl"
+      />
     </div>
   );
 }
