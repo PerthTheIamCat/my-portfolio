@@ -120,6 +120,15 @@ export default function Profile() {
               key={index}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               style={{ x, y, zIndex }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 120,
+                damping: 10,
+                duration: 0.5,
+                delay: index * 0.2,
+              }}
             >
               <Image src={icon.src} alt="tech logo" width={50} height={50} />
             </motion.div>
@@ -133,6 +142,15 @@ export default function Profile() {
               key={`orbit2-${index}`}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               style={{ x, y, zIndex }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 120,
+                damping: 10,
+                duration: 0.5,
+                delay: index * 0.2 + 0.5,
+              }}
             >
               <Image src={icon.src} alt="tech logo" width={40} height={40} />
             </motion.div>
