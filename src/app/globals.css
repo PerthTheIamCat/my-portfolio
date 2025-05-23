@@ -11,4 +11,5 @@ body {
   background: #14181A;
   color: #FFFFFF;
   font-family: var(--font-kanit) ;
+  overflow: hidden;
 }
