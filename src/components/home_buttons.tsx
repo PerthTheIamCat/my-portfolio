@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import SpringFromRight from "@/animation/SpringFromRight";
+import Spotlight from "@/animation/Spotlight";
 
 export default function HomeButtons({ onClick }: { onClick: () => void }) {
   const router = useRouter();
@@ -47,24 +48,44 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
 
   return (
     <div className="grid grid-rows-3">
+      <motion.div
+        className="pointer-events-none absolute top-1/2 -right-20 h-[200px] w-[500px] origin-right -translate-y-1/2 bg-gradient-to-l from-white/20 to-transparent blur-2xl"
+        initial={{ x: "1000px", rotate: "0deg", opacity: 1 }}
+        animate={{
+          x:
+            isHoveredAboutMe || isHoveredProject || isHoveredContact
+              ? "0px"
+              : "1000px",
+          rotate: isHoveredAboutMe
+            ? "30deg"
+            : isHoveredProject
+              ? "0deg"
+              : isHoveredContact
+                ? "-30deg"
+                : "0deg",
+          opacity:
+            isHoveredAboutMe || isHoveredProject || isHoveredContact ? 1 : 1,
+          background: isHoveredAboutMe
+            ? "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 100%)"
+            : isHoveredProject
+              ? "linear-gradient(90deg, transparent 0%, rgba(102,204,255,0.2) 100%)"
+              : isHoveredContact
+                ? "linear-gradient(90deg, transparent 0%, rgba(255,153,255,0.2) 100%)"
+                : "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 100%)",
+        }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      />
       <div
         className="relative"
         onMouseEnter={() => setIsHoveredAboutMe(true)}
         onMouseLeave={() => setIsHoveredAboutMe(false)}
       >
-        <motion.div
-          className="absolute bottom-0 mx-auto flex h-full w-full items-center rounded-l-full bg-black"
-          initial={{ opacity: 0, x: 100, scale: 1, zIndex: 0 }}
-          animate={{
-            opacity: isHoveredAboutMe ? 1 : 0,
-            x: isHoveredAboutMe ? 0 : 100,
-            scale: isAboutMeClicked ? 5 : 1,
-            zIndex: isAboutMeClicked ? 20 : 0,
-          }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="absolute right-0 my-auto flex h-[calc(100%-50px)] w-[calc(100%-50px)] animate-pulse items-center rounded-l-full border-l border-white bg-transparent" />
-        </motion.div>
+        <Spotlight
+          size={400}
+          color="rgba(255,255,255,0.2)"
+          isHovered={isHoveredAboutMe}
+        />
+
         <motion.div
           className="absolute bottom-0 mx-auto flex h-full w-full items-center rounded-l-full bg-transparent"
           initial={{ opacity: 0, x: 100, scale: 1, zIndex: 0 }}
@@ -92,19 +113,11 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
         onMouseEnter={() => setIsHoveredProject(true)}
         onMouseLeave={() => setIsHoveredProject(false)}
       >
-        <motion.div
-          className="absolute bottom-0 mx-auto flex h-full w-full items-center rounded-l-full bg-black"
-          initial={{ opacity: 0, x: 100, scale: 1, zIndex: 0 }}
-          animate={{
-            opacity: isHoveredProject ? 1 : 0,
-            x: isHoveredProject ? 0 : 100,
-            scale: isProjectClicked ? 5 : 1,
-            zIndex: isProjectClicked ? 20 : 0,
-          }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="absolute right-0 my-auto flex h-[calc(100%-50px)] w-[calc(100%-50px)] animate-pulse items-center rounded-l-full border-l border-white bg-transparent" />
-        </motion.div>
+        <Spotlight
+          size={400}
+          color="rgba(102,204,255,0.2)"
+          isHovered={isHoveredProject}
+        />
         <motion.div
           className="absolute bottom-0 mx-auto flex h-full w-full items-center rounded-l-full bg-transparent"
           initial={{ opacity: 0, x: 100, scale: 1, zIndex: 0 }}
@@ -134,19 +147,12 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
         onMouseEnter={() => setIsHoveredContact(true)}
         onMouseLeave={() => setIsHoveredContact(false)}
       >
-        <motion.div
-          className="absolute bottom-0 mx-auto flex h-full w-full items-center rounded-l-full bg-black"
-          initial={{ opacity: 0, x: 100, scale: 1, zIndex: 0 }}
-          animate={{
-            opacity: isHoveredContact ? 1 : 0,
-            x: isHoveredContact ? 0 : 100,
-            scale: isContactClicked ? 5 : 1,
-            zIndex: isContactClicked ? 20 : 0,
-          }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="absolute right-0 my-auto flex h-[calc(100%-50px)] w-[calc(100%-50px)] animate-pulse items-center rounded-l-full border-l border-white bg-transparent" />
-        </motion.div>
+        <Spotlight
+          size={400}
+          color="rgba(255,153,255,0.2)"
+          isHovered={isHoveredContact}
+        />
+
         <motion.div
           className="absolute bottom-0 mx-auto flex h-full w-full items-center rounded-l-full bg-transparent"
           initial={{ opacity: 0, x: 100, scale: 1, zIndex: 0 }}
