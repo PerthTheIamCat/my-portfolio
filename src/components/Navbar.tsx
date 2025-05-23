@@ -1,4 +1,4 @@
-import SpringFromAbove from "./animation/SpringFromAbove";
+import SpringFromAbove from "@/animation/SpringFromAbove";
 
 export default function Navbar() {
   return (

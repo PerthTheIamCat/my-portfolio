@@ -1,4 +1,4 @@
-import FadeInDiv from "@/components/animation/FadeInDiv";
+import FadeInDiv from "@/animation/FadeInDiv";
 
 export default function AboutMe() {
   return (

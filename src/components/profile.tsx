@@ -6,6 +6,7 @@ import {
   useTransform,
   useAnimationFrame,
 } from "framer-motion";
+import SpringFromAbove from "@/animation/SpringFromAbove";
 
 export default function Profile() {
   const radius = 120;
@@ -101,59 +102,33 @@ export default function Profile() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <motion.div
-        className="relative m-20"
-        initial={{ opacity: 0, y: -100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 120,
-          damping: 10,
-          duration: 0.5,
-        }}
-      >
+      <SpringFromAbove className="relative m-20">
         {icons.map((icon, index) => {
           const { x, y, zIndex } = orbitData[index];
 
           return (
-            <motion.div
+            <SpringFromAbove
               key={index}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               style={{ x, y, zIndex }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 120,
-                damping: 10,
-                duration: 0.5,
-                delay: index * 0.2,
-              }}
+              delay={index * 0.2}
             >
               <Image src={icon.src} alt="tech logo" width={50} height={50} />
-            </motion.div>
+            </SpringFromAbove>
           );
         })}
         {icons2.map((icon, index) => {
           const { x, y, zIndex } = orbitData2[index];
 
           return (
-            <motion.div
+            <SpringFromAbove
               key={`orbit2-${index}`}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               style={{ x, y, zIndex }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 120,
-                damping: 10,
-                duration: 0.5,
-                delay: index * 0.2 + 0.5,
-              }}
+              delay={index * 0.2 + 0.5}
             >
               <Image src={icon.src} alt="tech logo" width={40} height={40} />
-            </motion.div>
+            </SpringFromAbove>
           );
         })}
         <motion.div
@@ -176,34 +151,15 @@ export default function Profile() {
             className="rounded-full"
           />
         </motion.div>
-      </motion.div>
-      <motion.h1
-        initial={{ opacity: 0, y: -100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 120,
-          damping: 10,
-          duration: 0.5,
-          delay: 0.1,
-        }}
-        className="mt-4 text-2xl font-bold"
-      >
-        Hello, I&apos;m <span>Pawit Thongkum</span>
-      </motion.h1>
-      <motion.h2
-        initial={{ opacity: 0, y: -100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 120,
-          damping: 10,
-          duration: 0.5,
-          delay: 0.2,
-        }}
-      >
-        A Computer Engineering student at Kasetsart University
-      </motion.h2>
+      </SpringFromAbove>
+      <SpringFromAbove delay={0.2} className="mt-4 text-2xl font-bold">
+        <h1>
+          Hello, I&apos;m <span>Pawit Thongkum</span>
+        </h1>
+      </SpringFromAbove>
+      <SpringFromAbove delay={0.4}>
+        <h2>A Computer Engineering student at Kasetsart University</h2>
+      </SpringFromAbove>
     </div>
   );
 }

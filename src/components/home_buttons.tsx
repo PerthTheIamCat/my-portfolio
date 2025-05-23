@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import SpringFromRight from "@/animation/SpringFromRight";
 
 export default function HomeButtons({ onClick }: { onClick: () => void }) {
   const router = useRouter();
@@ -76,22 +77,14 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
         >
           <h1 className="w-full pt-20 text-center">See what is about me</h1>
         </motion.div>
-        <motion.div
+        <SpringFromRight
           className={`relative ${isAboutMeClicked ? "z-20" : "z-10"} flex h-full items-center justify-center`}
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            type: "spring",
-            stiffness: 120,
-            damping: 10,
-            delay: 0.4,
-          }}
+          delay={0.4}
         >
           <button className="text-2xl" onClick={() => handleClick("aboutme")}>
             <h1>About Me</h1>
           </button>
-        </motion.div>
+        </SpringFromRight>
       </div>
 
       <div
@@ -126,22 +119,14 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
             See what is about projects
           </h1>
         </motion.div>
-        <motion.div
+        <SpringFromRight
           className={`relative ${isProjectClicked ? "z-20" : "z-10"} flex h-full items-center justify-center`}
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            type: "spring",
-            stiffness: 120,
-            damping: 10,
-            delay: 0.5,
-          }}
+          delay={0.5}
         >
           <button className="text-2xl" onClick={() => handleClick("project")}>
             <h1>Projects</h1>
           </button>
-        </motion.div>
+        </SpringFromRight>
       </div>
 
       <div
@@ -176,22 +161,14 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
             See what is about contact
           </h1>
         </motion.div>
-        <motion.div
+        <SpringFromRight
           className={`relative ${isContactClicked ? "z-20" : "z-10"} flex h-full items-center justify-center`}
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            type: "spring",
-            stiffness: 120,
-            damping: 10,
-            delay: 0.6,
-          }}
+          delay={0.6}
         >
           <button className="text-2xl" onClick={() => handleClick("contact")}>
             <h1>Contact</h1>
           </button>
-        </motion.div>
+        </SpringFromRight>
       </div>
     </div>
   );
