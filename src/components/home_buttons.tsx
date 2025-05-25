@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import SpringFromRight from "@/animation/SpringFromRight";
 import Spotlight from "@/animation/Spotlight";
+import StarSpark from "@/animation/StarSpark";
 
 export default function HomeButtons({ onClick }: { onClick: () => void }) {
   const router = useRouter();
@@ -73,7 +74,7 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
                 ? "linear-gradient(90deg, transparent 0%, rgba(255,153,255,0.2) 100%)"
                 : "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 100%)",
         }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        transition={{ type: "spring", stiffness: 1000, damping: 100 }}
       />
       <div
         className="relative"
@@ -102,9 +103,14 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
           className={`relative ${isAboutMeClicked ? "z-20" : "z-10"} flex h-full items-center justify-center`}
           delay={0.4}
         >
-          <button className="text-2xl" onClick={() => handleClick("aboutme")}>
-            <h1>About Me</h1>
-          </button>
+          <StarSpark delay={0.4}>
+            <button
+              className="cursor-pointer text-2xl"
+              onClick={() => handleClick("aboutme")}
+            >
+              <h1>About Me</h1>
+            </button>
+          </StarSpark>
         </SpringFromRight>
       </div>
 
@@ -136,9 +142,14 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
           className={`relative ${isProjectClicked ? "z-20" : "z-10"} flex h-full items-center justify-center`}
           delay={0.5}
         >
-          <button className="text-2xl" onClick={() => handleClick("project")}>
-            <h1>Projects</h1>
-          </button>
+          <StarSpark delay={0.5}>
+            <button
+              className="cursor-pointer text-2xl"
+              onClick={() => handleClick("project")}
+            >
+              <h1>Projects</h1>
+            </button>
+          </StarSpark>
         </SpringFromRight>
       </div>
 
@@ -171,9 +182,14 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
           className={`relative ${isContactClicked ? "z-20" : "z-10"} flex h-full items-center justify-center`}
           delay={0.6}
         >
-          <button className="text-2xl" onClick={() => handleClick("contact")}>
-            <h1>Contact</h1>
-          </button>
+          <StarSpark delay={0.6}>
+            <button
+              className="cursor-pointer text-2xl"
+              onClick={() => handleClick("contact")}
+            >
+              <h1>Contact</h1>
+            </button>
+          </StarSpark>
         </SpringFromRight>
       </div>
     </div>

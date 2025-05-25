@@ -96,7 +96,13 @@ export default function Profile() {
               style={{ x, y, zIndex }}
               delay={index * 0.2}
             >
-              <Image src={icon.src} alt="tech logo" width={50} height={50} />
+              <Image
+                src={icon.src}
+                alt="tech logo"
+                width={50}
+                height={50}
+                priority
+              />
             </SpringFromAbove>
           );
         })}
@@ -110,7 +116,13 @@ export default function Profile() {
               style={{ x, y, zIndex }}
               delay={index * 0.2 + 0.5}
             >
-              <Image src={icon.src} alt="tech logo" width={40} height={40} />
+              <Image
+                src={icon.src}
+                alt="tech logo"
+                width={40}
+                height={40}
+                priority
+              />
             </SpringFromAbove>
           );
         })}

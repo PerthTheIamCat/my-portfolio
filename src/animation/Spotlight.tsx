@@ -19,6 +19,7 @@ export default function Spotlight({
   return (
     <motion.div
       className="pointer-events-none absolute rounded-full blur-3xl"
+      initial={{ opacity: 0 }}
       style={{
         width: size,
         height: size,
