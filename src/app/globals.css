@@ -1,9 +1,30 @@
 @import "tailwindcss";
 
-
 body {
-  background: #14181A;
-  color: #FFFFFF;
-  overflow: hidden;
+  background: #14181a;
+  color: #ffffff;
   font-family: var(--font-kanit), sans-serif;
+}
+
+/* ความกว้าง scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; /* สำหรับ scrollbar แนวนอน */
+}
+
+/* ราง (track) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 6px;
+}
+
+/* ปุ่มเลื่อน (thumb) */
+::-webkit-scrollbar-thumb {
+  @apply bg-white/60;
+  border-radius: 6px;
+}
+
+/* เมื่อ hover ที่ thumb */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white;
 }

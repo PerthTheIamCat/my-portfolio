@@ -48,9 +48,9 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
   };
 
   return (
-    <div className="grid grid-rows-3">
+    <div className="relative grid w-full grid-cols-3 md:grid-cols-1 md:grid-rows-3 md:items-center">
       <motion.div
-        className="pointer-events-none absolute top-1/2 -right-20 h-[200px] w-[500px] origin-right -translate-y-1/2 bg-gradient-to-l from-white/20 to-transparent blur-2xl"
+        className="pointer-events-none absolute top-1/2 -right-20 hidden h-[200px] w-[500px] origin-right -translate-y-1/2 bg-gradient-to-l from-white/20 to-transparent blur-2xl md:flex"
         initial={{ x: "1000px", rotate: "0deg", opacity: 1 }}
         animate={{
           x:
@@ -77,7 +77,7 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
         transition={{ type: "spring", stiffness: 1000, damping: 100 }}
       />
       <div
-        className="relative"
+        className="relative scale-75 md:scale-100"
         onMouseEnter={() => setIsHoveredAboutMe(true)}
         onMouseLeave={() => setIsHoveredAboutMe(false)}
       >
@@ -108,14 +108,16 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
               className="cursor-pointer text-2xl"
               onClick={() => handleClick("aboutme")}
             >
-              <h1>About Me</h1>
+              <h1 className="underline underline-offset-2 hover:scale-105 active:scale-95">
+                About Me
+              </h1>
             </button>
           </StarSpark>
         </SpringFromRight>
       </div>
 
       <div
-        className="relative"
+        className="relative scale-75 md:scale-100"
         onMouseEnter={() => setIsHoveredProject(true)}
         onMouseLeave={() => setIsHoveredProject(false)}
       >
@@ -147,14 +149,16 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
               className="cursor-pointer text-2xl"
               onClick={() => handleClick("project")}
             >
-              <h1>Projects</h1>
+              <h1 className="underline underline-offset-2 hover:scale-105 active:scale-95">
+                Projects
+              </h1>
             </button>
           </StarSpark>
         </SpringFromRight>
       </div>
 
       <div
-        className="relative"
+        className="relative scale-75 md:scale-100"
         onMouseEnter={() => setIsHoveredContact(true)}
         onMouseLeave={() => setIsHoveredContact(false)}
       >
@@ -187,7 +191,9 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
               className="cursor-pointer text-2xl"
               onClick={() => handleClick("contact")}
             >
-              <h1>Contact</h1>
+              <h1 className="underline underline-offset-2 hover:scale-105 active:scale-95">
+                Contact
+              </h1>
             </button>
           </StarSpark>
         </SpringFromRight>

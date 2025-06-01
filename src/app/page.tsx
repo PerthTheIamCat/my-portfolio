@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="grid min-h-screen grid-cols-[1fr_1fr] overflow-hidden">
+    <div className="grid min-h-screen grid-rows-[1fr_200px] overflow-hidden md:grid-cols-[1fr_1fr] md:grid-rows-1 md:justify-center">
       <Profile />
       <InteractiveCircle />
     </div>

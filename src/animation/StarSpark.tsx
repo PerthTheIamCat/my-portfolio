@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { PiStarFourFill } from "react-icons/pi";
 
 export default function StarSpark({
   children,
@@ -23,7 +24,7 @@ export default function StarSpark({
         }}
       >
         <motion.div
-          className="pointer-events-none absolute top-1/2 left-1/2 aspect-square w-full origin-center -translate-x-1/2 -translate-y-1/2 bg-white"
+          className="pointer-events-none absolute top-1/2 left-1/2 aspect-square h-fit w-fit origin-center -translate-x-1/2 -translate-y-1/2 items-center justify-center"
           animate={{
             rotate: [45, 405],
             scale: [1, 1.5],
@@ -32,7 +33,9 @@ export default function StarSpark({
             duration: 1,
             delay: 1 + delay,
           }}
-        />
+        >
+          <PiStarFourFill size={250} />
+        </motion.div>
       </motion.div>
 
       <motion.div

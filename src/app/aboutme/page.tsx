@@ -8,15 +8,18 @@ export const metadata = {
 
 export default function AboutMe() {
   return (
-    <FadeInDiv className="flex flex-col items-center justify-center">
-      <StartSpark>
-        <h1 className="text-2xl font-bold">About Me</h1>
-      </StartSpark>
-      <p className="mt-4 text-center">
-        I am a Computer Engineering student at Kasetsart University. I have a
-        passion for technology and love to learn new things. In my free time, I
-        enjoy reading books, playing video games, and exploring the outdoors.
-      </p>
-    </FadeInDiv>
+    <div className="flex items-center justify-center overflow-hidden">
+      <FadeInDiv className="flex flex-col items-center justify-center">
+        <StartSpark>
+          <h1 className="text-2xl font-bold">About Me</h1>
+        </StartSpark>
+        <p className="mt-4 text-center">
+          I am a Computer Engineering student at Kasetsart University. I have a
+          passion for technology and love to learn new things. In my free time,
+          I enjoy reading books, playing video games, and exploring the
+          outdoors.
+        </p>
+      </FadeInDiv>
+    </div>
   );
 }

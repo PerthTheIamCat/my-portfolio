@@ -9,7 +9,7 @@ export default function Navbar() {
     >
       <div>
         <SpringFromAbove className="text-2xl font-bold">
-          <button>My Portfolio</button>
+          <button>Perth</button>
         </SpringFromAbove>
       </div>
       <div className="flex space-x-4">

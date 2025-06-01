@@ -10,7 +10,7 @@ export function StarField({ count = 20 }: { count?: number }) {
   }));
 
   return (
-    <div className="absolute inset-0 -z-20">
+    <div className="absolute inset-0 -z-20 h-screen w-screen">
       {stars.map((star) => (
         <motion.div
           key={star.id}

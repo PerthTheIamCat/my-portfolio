@@ -15,7 +15,7 @@ export default function LayoutWrapper({
 
   return (
     <div
-      className={`grid min-h-screen overflow-hidden antialiased ${
+      className={`grid min-h-screen antialiased ${
         isHome ? "grid-rows-[1fr_100px]" : "grid-rows-[100px_1fr_100px]"
       }`}
     >

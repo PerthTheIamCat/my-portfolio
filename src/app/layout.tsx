@@ -20,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`antialiased ${kanit.variable}`}>
+      <body
+        className={`antialiased ${kanit.variable} max-h-screen max-w-screen overflow-x-hidden`}
+      >
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>

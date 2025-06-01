@@ -83,9 +83,9 @@ export default function Profile() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="relative flex flex-col items-center justify-center">
       <StarField count={30} />
-      <SpringFromAbove className="relative m-20">
+      <SpringFromAbove className="relative scale-50 md:m-20 md:scale-100">
         {icons.map((icon, index) => {
           const { x, y, zIndex } = orbitData[index];
 
@@ -147,27 +147,36 @@ export default function Profile() {
           />
         </motion.div>
       </SpringFromAbove>
-      <SpringFromAbove delay={0.2} className="mt-4 text-2xl font-bold">
-        <h1>
+      <SpringFromAbove delay={0.2} className="text-2xl font-bold md:mt-4">
+        <h1 className="scale-75 text-center md:scale-100">
           Hello, I&apos;m <span>Pawit Thongkum</span>
         </h1>
       </SpringFromAbove>
       <SpringFromAbove delay={0.4}>
-        <h2>A Computer Engineering student at Kasetsart University</h2>
+        <h2 className="scale-75 text-center md:scale-100">
+          A Computer Engineering student at Kasetsart University
+        </h2>
       </SpringFromAbove>
-      <motion.div
-        animate={{
-          opacity: [0.2, 0.5, 0.8, 0.5, 0.2],
-          scale: [0.8, 1, 1.5, 1, 0.8],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "easeOut",
-        }}
-        className="absolute top-1/3 -z-10 h-[500px] w-[500px] -translate-y-1/3 rounded-full bg-radial from-blue-950 from-10% to-[#14181A] blur-3xl"
-      />
+      <SpringFromAbove delay={0.6}>
+        <button className="mt-10 cursor-pointer rounded-full border-2 border-white px-20 py-2 transition-all duration-300 ease-in-out hover:scale-105 active:scale-90">
+          <h1>See my resume</h1>
+        </button>
+      </SpringFromAbove>
+      <div className="absolute top-0 left-0 h-full w-full">
+        <motion.div
+          animate={{
+            opacity: [0.2, 0.5, 0.8, 0.5, 0.2],
+            scale: [0.8, 1, 1.5, 1, 0.8],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeOut",
+          }}
+          className="absolute top-1/3 -z-10 h-[500px] w-[500px] -translate-y-1/3 rounded-full bg-radial from-blue-950 from-10% to-[#14181A] blur-3xl"
+        />
+      </div>
     </div>
   );
 }
