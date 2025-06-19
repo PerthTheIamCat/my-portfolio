@@ -51,18 +51,18 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
     <div className="relative grid w-full grid-cols-3 md:grid-cols-1 md:grid-rows-3 md:items-center">
       <motion.div
         className="pointer-events-none absolute top-1/2 -right-20 hidden h-[200px] w-[500px] origin-right -translate-y-1/2 bg-gradient-to-l from-white/20 to-transparent blur-2xl md:flex"
-        initial={{ x: "1000px", rotate: "0deg", opacity: 1 }}
+        initial={{ x: "2000px", rotate: "0deg", opacity: 1 }}
         animate={{
           x:
             isHoveredAboutMe || isHoveredProject || isHoveredContact
               ? "0px"
               : "1000px",
           rotate: isHoveredAboutMe
-            ? "30deg"
+            ? `${window.innerWidth > 768 ? "35deg" : "50deg"}`
             : isHoveredProject
               ? "0deg"
               : isHoveredContact
-                ? "-30deg"
+                ? `${window.innerWidth > 768 ? "-35deg" : "-50deg"}`
                 : "0deg",
           opacity:
             isHoveredAboutMe || isHoveredProject || isHoveredContact ? 1 : 1,
@@ -74,7 +74,7 @@ export default function HomeButtons({ onClick }: { onClick: () => void }) {
                 ? "linear-gradient(90deg, transparent 0%, rgba(255,153,255,0.2) 100%)"
                 : "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 100%)",
         }}
-        transition={{ type: "spring", stiffness: 1000, damping: 100 }}
+        transition={{ type: "spring", stiffness: 600, damping: 100 }}
       />
       <div
         className="relative scale-75 md:scale-100"

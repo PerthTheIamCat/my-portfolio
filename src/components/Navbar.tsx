@@ -1,6 +1,8 @@
 import SpringFromAbove from "@/animation/SpringFromAbove";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
+  const router = useRouter();
   return (
     <nav
       className="sticky top-0 flex items-center justify-between px-4 text-white shadow-md"
@@ -14,13 +16,31 @@ export default function Navbar() {
       </div>
       <div className="flex space-x-4">
         <SpringFromAbove delay={0.1}>
-          <button>About Me</button>
+          <button
+            onClick={() => {
+              router.push("/aboutme");
+            }}
+          >
+            About Me
+          </button>
         </SpringFromAbove>
         <SpringFromAbove delay={0.2}>
-          <button>Project</button>
+          <button
+            onClick={() => {
+              router.push("/projects");
+            }}
+          >
+            Project
+          </button>
         </SpringFromAbove>
         <SpringFromAbove delay={0.3}>
-          <button>Contact</button>
+          <button
+            onClick={() => {
+              router.push("/aboutme");
+            }}
+          >
+            Contact
+          </button>
         </SpringFromAbove>
       </div>
     </nav>

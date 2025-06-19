@@ -3,12 +3,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import SpringFromAbove from "@/animation/SpringFromAbove";
 import dynamic from "next/dynamic";
+import Loading from "@/app/loading";
 
 const StarField = dynamic(
   () => import("@/components/RandomStars").then((m) => m.StarField),
   { ssr: false },
 );
 import { useOrbit } from "@/util/Orbit";
+import { useEffect, useState } from "react";
 
 export default function Profile() {
   const radius = 120;
@@ -82,6 +84,16 @@ export default function Profile() {
     useOrbit(icons2[7].initialAngle, radius2, scale),
   ];
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, [isLoading]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div className="relative flex flex-col items-center justify-center">
       <StarField count={30} />
@@ -144,6 +156,7 @@ export default function Profile() {
             width={300}
             height={300}
             className="rounded-full"
+            priority
           />
         </motion.div>
       </SpringFromAbove>
@@ -157,12 +170,15 @@ export default function Profile() {
           A Computer Engineering student at Kasetsart University
         </h2>
       </SpringFromAbove>
-      <SpringFromAbove delay={0.6}>
-        <button className="mt-10 cursor-pointer rounded-full border-2 border-white px-20 py-2 transition-all duration-300 ease-in-out hover:scale-105 active:scale-90">
-          <h1>See my resume</h1>
+      <SpringFromAbove
+        delay={0.6}
+        className="flex w-full items-center justify-center"
+      >
+        <button className="mt-10 w-full max-w-fit cursor-pointer rounded-full border-2 border-white px-10 py-2 md:px-20">
+          See my resume
         </button>
       </SpringFromAbove>
-      <div className="absolute top-0 left-0 h-full w-full">
+      <div className="absolute top-0 left-0 -z-10 h-full w-full">
         <motion.div
           animate={{
             opacity: [0.2, 0.5, 0.8, 0.5, 0.2],
@@ -174,7 +190,7 @@ export default function Profile() {
             repeatType: "loop",
             ease: "easeOut",
           }}
-          className="absolute top-1/3 -z-10 h-[500px] w-[500px] -translate-y-1/3 rounded-full bg-radial from-blue-950 from-10% to-[#14181A] blur-3xl"
+          className="absolute top-1/3 left-1/4 -z-10 h-[500px] w-[500px] -translate-x-1/5 -translate-y-1/3 rounded-full bg-radial from-blue-950 from-10% to-[#14181A] blur-3xl"
         />
       </div>
     </div>

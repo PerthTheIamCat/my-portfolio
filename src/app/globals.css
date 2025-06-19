@@ -28,3 +28,11 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-white;
 }
+
+button {
+  @apply hover:scale-105 active:scale-95 transition-transform duration-200 cursor-pointer hover:underline;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
