@@ -11,7 +11,13 @@ export default function Navbar() {
     >
       <div>
         <SpringFromAbove className="text-2xl font-bold">
-          <button>Perth</button>
+          <button
+            onClick={() => {
+              router.push("/");
+            }}
+          >
+            Perth
+          </button>
         </SpringFromAbove>
       </div>
       <div className="flex space-x-4">
