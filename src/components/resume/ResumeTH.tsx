@@ -1,119 +1,211 @@
 import { forwardRef } from "react";
+import { Sarabun } from "next/font/google";
+import { PiDiamondsFourFill } from "react-icons/pi";
+import { AiOutlineMail, AiOutlinePhone, AiOutlineGithub } from "react-icons/ai";
 
-const ResumePaperTH = forwardRef<HTMLDivElement>((props, ref) => {
+const sarabun = Sarabun({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const ResumePaperEN = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className="mx-auto w-fit bg-white p-[20mm]">
-      <div ref={ref} className="a4-preview">
-        <h1 className="text-center text-3xl font-bold">ภวิษย์ ทองคำ</h1>
-        <p className="text-center text-lg">นักพัฒนา Full Stack</p>
-
+    <div className="mx-auto w-fit rounded-xl bg-white p-[20mm]">
+      <div ref={ref} className={`a4-preview ${sarabun.className}`}>
+        <h1 className="text-center text-3xl font-bold">ภาวิต ทองคำ</h1>
         <div className="mt-1 text-center">
-          <p>103/59 หมู่ 11 ตำบลบางปลา อำเภอบางพลี จังหวัดสมุทรปราการ 10540</p>
           <p>
-            062-408-1116 |{" "}
+            103/59, หมู่ 11, ตำบล บางปลา, อำเภอ บางพลี, จังหวัด สมุทรปราการ,
+            10540
+          </p>
+          <div className="flex justify-evenly font-bold">
+            <p>
+              <AiOutlinePhone className="mr-1 inline" />
+              062-408-1116
+            </p>
             <a href="mailto:pawit.th@ku.th" className="underline">
+              <AiOutlineMail className="mr-1 inline" />
               pawit.th@ku.th
             </a>
-          </p>
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://github.com/PerthTheIamCat"
+              className="underline"
+            >
+              <AiOutlineGithub className="mr-1 inline" />
+              PerthTheIamCat
+            </a>
+          </div>
         </div>
+        <div className="my-2 border-t-6 border-gray-400">
+          <div className="flex justify-between pt-3 text-sm">
+            <p>
+              <strong>
+                วันเกิด:.......................................................
+              </strong>
+              <span className="italic">27 สิงหาคม 2546</span>
+            </p>
+            <p>
+              <strong>
+                สัญชาติ:.......................................................................
+              </strong>{" "}
+              <span className="italic">ไทย</span>
+            </p>
+          </div>
+          <div className="my-3">
+            <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
+              การศึกษา
+            </h2>
+            <p className="flex flex-row justify-between">
+              <strong className="flex items-center gap-4">
+                <PiDiamondsFourFill />
+                มหาวิทยาลัยเกษตรศาสตร์
+                วิทยาเขตศรีราชา...............................................................................
+              </strong>
+              <span className="italic">2065 - ปัจจุบัญ</span>
+            </p>
+            <div className="flex flex-row justify-between text-sm italic">
+              <p className="indent-8">
+                ปริญญาวิศวกรรมศาสตรบัณฑิต สาขาวิศวกรรมคอมพิวเตอร์
+              </p>
+              <p>จังหวัดชลบุรี</p>
+            </div>
+            <ul className="mt-2 ml-16 list-disc">
+              <li>กำลังศึกษาในระดับปริญญาตรี สาขาวิศวกรรมคอมพิวเตอร์</li>
+              <li>
+                หัวหน้าทีมเทคนิคของชมรม Cybergeek
+                ดูแลโปรเจกต์ด้านเทคโนโลยีและให้คำแนะนำแก่รุ่นน้อง
+              </li>
+            </ul>
+            <p className="mt-2 flex flex-row justify-between">
+              <strong className="flex items-center gap-4">
+                <PiDiamondsFourFill />
+                โรงเรียนพูลเจริญวิทยาคม.............................................................................................................
+              </strong>
+              <span className="italic">2559 - 2565</span>
+            </p>
+            <div className="flex flex-row justify-between text-sm italic">
+              <p className="indent-8">
+                หลักสูตรวิทย์-คณิต (Mini English Program - MEP)
+              </p>
+              <p>จังหวัดสมุทรปราการ</p>
+            </div>
+            <ul className="mt-2 ml-16 list-disc">
+              <li>สำเร็จการศึกษาจากโปรแกรม MEP</li>
+              <li>
+                เรียนวิชา คณิตศาสตร์ วิทยาศาสตร์ และคอมพิวเตอร์ เป็นภาษาอังกฤษ
+              </li>
+              <li>
+                <strong>GPA:</strong> 3.86 / 4.00
+              </li>
+            </ul>
+          </div>
 
-        <div className="my-6 border-t border-gray-400 pt-4">
-          <h2 className="mb-2 text-xl font-bold">โปรไฟล์</h2>
-          <p>
-            ข้าพเจ้าเป็นนักศึกษาวิศวกรรมคอมพิวเตอร์ที่มหาวิทยาลัยเกษตรศาสตร์
-            ศรีราชา มีทักษะความเป็นผู้นำและการพัฒนา full-stack อย่างแข็งแกร่ง
-            เคยเป็นหัวหน้าทีมในการพัฒนาเว็บแอปพลิเคชันโดยใช้ Next.js, PostgreSQL
-            และ Node.js สนใจการเขียนโค้ดที่สะอาด การออกแบบระบบที่ขยายได้
-            และการเรียนรู้เทคโนโลยีใหม่ ๆ อย่างต่อเนื่อง
-            ปัจจุบันกำลังมองหาโอกาสฝึกงานเพื่อพัฒนาตนเองและสร้างผลงานจริงในโลกการทำงาน
-          </p>
+          <div>
+            <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
+              ประสบการณ์
+            </h2>
+            <p className="flex flex-row justify-between">
+              <strong className="flex items-center gap-4">
+                <PiDiamondsFourFill />
+                หัวหน้าทีมเทคนิค.....................................................................................................................
+              </strong>
+              <span className="italic">2566 - ปัจจุบัน</span>
+            </p>
+            <div className="flex flex-row justify-between text-sm italic">
+              <p className="indent-8">
+                หัวหน้าทีมเทคนิค, ชมรม Cybergeek มหาวิทยาลัยเกษตรศาสตร์
+              </p>
+              <p>จังหวัดชลบุรี</p>
+            </div>
+            <ul className="mt-2 ml-16 list-disc">
+              <li>
+                ดูแลทีมพัฒนา Fullstack ทั้งด้าน Frontend และ Backend รวม 3 คน
+              </li>
+              <li>ออกแบบและพัฒนา UI ด้วย React, Next.js, และ TypeScript</li>
+              <li>
+                วางสถาปัตยกรรมระบบหลังบ้าน (Backend) และออกแบบฐานข้อมูลด้วย
+                MySQL และ PostgreSQL
+              </li>
+              <li>
+                ทำงานร่วมกันในทีมเพื่อวางแผน พัฒนา
+                และส่งมอบระบบที่สามารถขยายต่อได้ในระยะยาว
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div className="my-6 border-t border-gray-400 pt-4">
-          <h2 className="mb-2 text-xl font-bold">ประสบการณ์ทำงาน</h2>
-          <h3 className="font-semibold">
-            หัวหน้าทีมเทคนิค, ชมรม Cybergeek มหาวิทยาลัยเกษตรศาสตร์ ศรีราชา
-          </h3>
-          <p className="text-sm italic">2566 - ปัจจุบัน | ชลบุรี</p>
-          <ul className="mt-2 list-inside list-disc">
-            <li>ดูแลทีม full-stack จำนวน 3 คน ทั้งด้าน frontend และ backend</li>
-            <li>ออกแบบและพัฒนา UI โดยใช้ React, Next.js และ TypeScript</li>
+        <div className="my-3">
+          <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
+            ผลงาน
+          </h2>
+          <p className="flex flex-row justify-between">
+            <strong className="flex items-center gap-4">
+              <PiDiamondsFourFill />
+              Money Mind -
+              แอปบริหารการเงินและวางแผนการเกษียณ..............................................................
+            </strong>
+            <span className="italic">มีนาคม 2568</span>
+          </p>
+          <div className="flex flex-row justify-between text-sm italic">
+            <p className="indent-8">React Native, Express.js, MySQL</p>
+          </div>
+          <ul className="mt-2 ml-16 list-disc">
             <li>
-              จัดการโครงสร้าง backend และออกแบบฐานข้อมูลด้วย MySQL และ
-              PostgreSQL
+              พัฒนา UI สำหรับมือถือ และระบบติดตามรายรับรายจ่ายด้วย React Native
             </li>
             <li>
-              วางแผน พัฒนา และ deploy
-              ระบบร่วมกับทีมให้สามารถดูแลต่อได้ง่ายและขยายต่อได้
+              เชื่อมต่อระบบหน้าแอปกับหลังบ้านผ่าน API ของ Express.js และ MySQL
+              เพื่อซิงก์ข้อมูลแบบ Real-Time
+            </li>
+          </ul>
+          <p className="mt-2 flex flex-row justify-between">
+            <strong className="flex items-center gap-4">
+              <PiDiamondsFourFill />
+              เว็บไซต์ชมรม Cybergeek -
+              ระบบสมัครสมาชิกและจัดการกิจกรรมชมรม.........................................
+            </strong>
+            <span className="italic">มิถุนายน 2567</span>
+          </p>
+          <div className="flex flex-row justify-between text-sm italic">
+            <p className="indent-8">Next.js, Express.js, MySQL, AWS S3</p>
+          </div>
+          <ul className="mt-2 ml-16 list-disc">
+            <li>
+              พัฒนาเว็บไซต์ชมรมครบวงจรด้วย Next.js สำหรับแสดงข่าวสาร ประวัติชมรม
+              และระบบสมัครสมาชิก
+            </li>
+            <li>
+              ออกแบบ API ฝั่ง Backend, จัดการฐานข้อมูล MySQL และเชื่อมต่อ AWS S3
+              สำหรับเก็บรูปภาพและเอกสารของสมาชิก
             </li>
           </ul>
         </div>
-
-        <div className="my-6 border-t border-gray-400 pt-4">
-          <h2 className="mb-2 text-xl font-bold">การศึกษา</h2>
-          <h3 className="font-semibold">โรงเรียนพูลเจริญวิทยาคม</h3>
-          <p className="text-sm italic">2559 - 2565 | สมุทรปราการ</p>
-          <p>วุฒิมัธยมศึกษาตอนปลาย (แผนการเรียนวิทย์-คณิต โปรแกรม MEP)</p>
-          <ul className="mt-2 list-inside list-disc">
-            <li>จบการศึกษาจากโครงการ Mini English Program (MEP)</li>
+        <div className="my-3">
+          <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
+            ทักษะ
+          </h2>
+          <ul className="ml-16 list-disc">
             <li>
-              เรียนวิชาแกนหลักเป็นภาษาอังกฤษ เช่น คณิตศาสตร์ วิทยาศาสตร์
-              และคอมพิวเตอร์
+              <strong>ภาษาโปรแกรม: </strong>C, C++, Java, Python, JavaScript,
+              TypeScript, SQL
             </li>
             <li>
-              <strong>เกรดเฉลี่ย:</strong> 3.86 / 4.00
+              <strong>เครื่องมือพัฒนา: </strong>VS Code, Android Studio, Xcode,
+              APIdog
             </li>
-          </ul>
-
-          <h3 className="mt-4 font-semibold">มหาวิทยาลัยเกษตรศาสตร์ ศรีราชา</h3>
-          <p className="text-sm italic">2565 - ปัจจุบัน | ชลบุรี</p>
-          <p>วิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์</p>
-          <ul className="mt-2 list-inside list-disc">
-            <li>กำลังศึกษาในระดับปริญญาตรี สาขาวิศวกรรมคอมพิวเตอร์</li>
             <li>
-              หัวหน้าฝ่ายเทคนิคของชมรม Cybergeek
-              ดูแลโปรเจกต์และให้คำปรึกษารุ่นน้อง
+              <strong>เทคโนโลยีและเฟรมเวิร์ก: </strong>React, React Native,
+              Next.js, Express.js, Node.js, MySQL, PostgreSQL, TailwindCSS,
+              Svelte Kit
             </li>
           </ul>
-        </div>
-
-        <div className="my-6 border-t border-gray-400 pt-4">
-          <h2 className="mb-2 text-xl font-bold">ทักษะ</h2>
-          <ul className="grid list-inside list-disc grid-cols-2">
-            <li>
-              <strong>Node.js:</strong> ระดับดี
-            </li>
-            <li>
-              <strong>MySQL & PostgreSQL:</strong> ระดับดี
-            </li>
-            <li>
-              <strong>HTML & CSS:</strong> ระดับเชี่ยวชาญ
-            </li>
-            <li>
-              <strong>React:</strong> ระดับเชี่ยวชาญ
-            </li>
-            <li>
-              <strong>JavaScript & TypeScript:</strong> ระดับดี
-            </li>
-            <li>
-              <strong>Next.js:</strong> ระดับเชี่ยวชาญ
-            </li>
-          </ul>
-        </div>
-
-        <div className="my-6 border-t border-gray-400 pt-4 text-sm">
-          <p>
-            <strong>วันเกิด:</strong> 27 สิงหาคม 2546
-          </p>
-          <p>
-            <strong>สัญชาติ:</strong> ไทย
-          </p>
         </div>
       </div>
     </div>
   );
 });
 
-ResumePaperTH.displayName = "ResumePaper";
+ResumePaperEN.displayName = "ResumePaper";
 
-export default ResumePaperTH;
+export default ResumePaperEN;
