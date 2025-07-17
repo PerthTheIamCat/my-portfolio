@@ -5,10 +5,11 @@ export default function Navbar() {
   const router = useRouter();
   return (
     <nav
-      className="sticky top-0 flex items-center justify-between px-4 text-white shadow-md"
+      className="sticky top-0 z-10 flex items-center justify-between px-4 text-white backdrop-blur-xs"
       role="navigation"
       aria-label="Main navigation"
     >
+      <div className="absolute -z-10 h-[100px] w-full"></div>
       <div>
         <SpringFromAbove className="text-2xl font-bold">
           <button
