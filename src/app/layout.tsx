@@ -1,6 +1,8 @@
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import { Kanit } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const kanit = Kanit({
   subsets: ["latin"],
@@ -25,6 +27,8 @@ export default function RootLayout({
       >
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
+      <SpeedInsights />
+      <Analytics />
     </html>
   );
 }
