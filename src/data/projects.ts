@@ -5,7 +5,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Project One",
+    name: "MoneyMind",
     description: "นี่คือรายละเอียดของ Project One…",
   },
   {

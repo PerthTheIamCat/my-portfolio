@@ -5,6 +5,7 @@ import SpringFromAbove from "@/animation/SpringFromAbove";
 import dynamic from "next/dynamic";
 import Loading from "@/app/loading";
 import { useRouter } from "next/navigation";
+import { FaArrowRight } from "react-icons/fa6";
 
 const StarField = dynamic(
   () => import("@/components/RandomStars").then((m) => m.StarField),
@@ -154,7 +155,7 @@ export default function Profile() {
           }}
         >
           <Image
-            src="/images/profile.png"
+            src="/images/profiles/profile.png"
             alt="profile image"
             width={300}
             height={300}
@@ -178,12 +179,13 @@ export default function Profile() {
         className="flex w-full items-center justify-center"
       >
         <button
-          className="mt-10 w-full max-w-fit cursor-pointer rounded-full border-2 border-white px-10 py-2 md:px-20"
+          className="group mt-10 w-full max-w-fit cursor-pointer rounded-full border-2 border-white px-10 py-2 md:px-20"
           onClick={() => {
             router.push("/resume");
           }}
         >
-          See my resume
+          See my resume{" "}
+          <FaArrowRight className="absolute ml-10 inline scale-0 place-self-center transition-all group-hover:scale-110 group-active:translate-x-5" />
         </button>
       </SpringFromAbove>
       <div className="absolute top-0 left-0 -z-10 h-full w-full">

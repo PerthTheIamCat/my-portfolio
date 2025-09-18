@@ -9,7 +9,6 @@ export default function Navbar() {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="absolute -z-10 h-[100px] w-full"></div>
       <div>
         <SpringFromAbove className="text-2xl font-bold">
           <button

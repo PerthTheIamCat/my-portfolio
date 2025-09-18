@@ -1,6 +1,11 @@
 // src/app/projects/[slug]/page.tsx
 import { Metadata } from "next";
 import { projects } from "@/data/projects";
+import dynamic from "next/dynamic";
+import Loading from "@/app/loading";
+const ProjectMoneyMind = dynamic(
+  () => import("@/components/projects/project_moneymind"),
+);
 
 export async function generateStaticParams() {
   return projects.map((p) => ({
@@ -28,5 +33,9 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return <div className="flex min-h-screen w-full">{slug}</div>;
+  return (
+    <div className="flex min-h-screen w-full">
+      {slug === "moneymind" ? <ProjectMoneyMind /> : <Loading />}
+    </div>
+  );
 }
