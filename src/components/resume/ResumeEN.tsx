@@ -1,7 +1,9 @@
 import { forwardRef } from "react";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import { PiDiamondsFourFill } from "react-icons/pi";
 import { AiOutlineMail, AiOutlinePhone, AiOutlineGithub } from "react-icons/ai";
+import { CiGlobe } from "react-icons/ci";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,48 +13,73 @@ const inter = Inter({
 const ResumePaperEN = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <div className="mx-auto w-fit rounded-xl bg-white p-[20mm]">
-      <div ref={ref} className={`a4-preview ${inter.className}`}>
-        <h1 className="text-center text-3xl font-bold">PAWIT THONGKUM</h1>
-        <div className="mt-1 text-center">
-          <p>
-            103/59, Moo 11, Bang Pla Subdistrict, Bang Phli District, Samut
-            Prakan, 10540
-          </p>
-          <div className="flex justify-evenly font-bold">
-            <p>
-              <AiOutlinePhone className="mr-1 inline" />
-              062-408-1116
-            </p>
-            <a href="mailto:pawit.th@ku.th" className="underline">
-              <AiOutlineMail className="mr-1 inline" />
-              pawit.th@ku.th
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://github.com/PerthTheIamCat"
-              className="underline"
-            >
-              <AiOutlineGithub className="mr-1 inline" />
-              PerthTheIamCat
-            </a>
+      <div ref={ref} className={`a4-preview mb-20 ${inter.className}`}>
+        <div className="flex h-fit w-full flex-row items-center justify-evenly">
+          <div className="">
+            <Image
+              src="/images/image.png"
+              alt="Profile photo"
+              width={120}
+              height={120}
+              priority
+              className="h-36 w-28 rounded-xl border border-gray-300 object-cover shadow-sm"
+            />
+          </div>
+          <div className="w-4/5 py-4">
+            <h1 className="text-3xl font-bold">PAWIT THONGKUM</h1>
+            <div className="mt-1">
+              <p>
+                103/59, Moo 11, Bang Pla Subdistrict, Bang Phli District, Samut
+                Prakan, 10540
+              </p>
+              <div className="flex justify-between text-[15px] font-bold">
+                <p>
+                  <AiOutlinePhone className="mr-1 inline" />
+                  062-408-1116
+                </p>
+                <a href="mailto:pawit.thongkum@gmail.com" className="underline">
+                  <AiOutlineMail className="mr-1 inline" />
+                  pawit.thongkum@gmail.com
+                </a>
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="https://github.com/PerthTheIamCat"
+                  className="underline"
+                >
+                  <AiOutlineGithub className="mr-1 inline" />
+                  PerthTheIamCat
+                </a>
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="https:www.pawit.dev"
+                  className="underline"
+                >
+                  <CiGlobe className="mr-1 inline" />
+                  pawit.dev
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="my-2 border-t-6 border-gray-400">
-          <div className="flex justify-between pt-3 text-sm">
-            <p>
-              <strong>Date of Birth:................................</strong>
-              <span className="italic">August 27, 2003</span>
-            </p>
-            <p>
-              <strong>
-                Nationality:..................................................
-              </strong>{" "}
-              <span className="italic">Thai</span>
+
+        <div className="my-1 border-t-6 border-gray-400">
+          <div className="my-2">
+            <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
+              SUMMARY
+            </h2>
+            <p className="indent-8 leading-relaxed">
+              Computer Engineering student and technical team lead with
+              end-to-end experience across web and mobile. Build React/Next.js
+              frontends and React Native apps backed by Express.js and SQL ,
+              focusing on clean UI architecture, robust API design, performance,
+              and maintainability. Looking for opportunities to contribute to
+              meaningful projects and grow as a developer.
             </p>
           </div>
-          <div className="my-3">
-            <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
+          <div className="my-2">
+            <h2 className="bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
               EDUCATION
             </h2>
             <p className="flex flex-row justify-between">
@@ -78,36 +105,15 @@ const ResumePaperEN = forwardRef<HTMLDivElement>((props, ref) => {
                 Lead Tech of the university&apos;s Cybergeek Club, managing
                 technical projects and mentoring junior members.
               </li>
-            </ul>
-            <p className="mt-2 flex flex-row justify-between">
-              <strong className="flex items-center gap-4">
-                <PiDiamondsFourFill />
-                Poolcharoen
-                Witthayakhom....................................................................................
-              </strong>
-              <span className="italic">2016 - 2022</span>
-            </p>
-            <div className="flex flex-row justify-between text-sm italic">
-              <p className="indent-8">
-                High School Diploma (Science-Math Program, MEP)
-              </p>
-              <p>Samut Prakan</p>
-            </div>
-            <ul className="mt-2 ml-16 list-disc">
-              <li>Graduated from the Mini English Program (MEP).</li>
               <li>
-                Studied core subjects in English: Mathematics, Science, and
-                Computer.
-              </li>
-              <li>
-                <strong>GPA:</strong> 3.86 / 4.00
+                <strong>Current GPA:</strong> 3.54 / 4.00 (First Class Honors)
               </li>
             </ul>
           </div>
 
           <div>
-            <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
-              EXPERIENCE
+            <h2 className="bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
+              ACTIVITIES
             </h2>
             <p className="flex flex-row justify-between">
               <strong className="flex items-center gap-4">
@@ -143,9 +149,9 @@ const ResumePaperEN = forwardRef<HTMLDivElement>((props, ref) => {
             </ul>
           </div>
         </div>
-        <div className="my-3">
-          <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
-            PROJECT
+        <div className="my-2">
+          <h2 className="bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
+            PROJECTS
           </h2>
           <p className="flex flex-row justify-between">
             <strong className="flex items-center gap-4">
@@ -190,7 +196,7 @@ const ResumePaperEN = forwardRef<HTMLDivElement>((props, ref) => {
             </li>
           </ul>
         </div>
-        <div className="my-3">
+        <div className="my-2">
           <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
             SKILLS
           </h2>

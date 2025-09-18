@@ -2,6 +2,9 @@ import { forwardRef } from "react";
 import { Sarabun } from "next/font/google";
 import { PiDiamondsFourFill } from "react-icons/pi";
 import { AiOutlineMail, AiOutlinePhone, AiOutlineGithub } from "react-icons/ai";
+import { CiGlobe } from "react-icons/ci";
+
+import Image from "next/image";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -11,46 +14,69 @@ const sarabun = Sarabun({
 const ResumePaperEN = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <div className="mx-auto w-fit rounded-xl bg-white p-[20mm]">
-      <div ref={ref} className={`a4-preview ${sarabun.className}`}>
-        <h1 className="text-center text-3xl font-bold">ภาวิต ทองคำ</h1>
-        <div className="mt-1 text-center">
-          <p>
-            103/59, หมู่ 11, ตำบล บางปลา, อำเภอ บางพลี, จังหวัด สมุทรปราการ,
-            10540
-          </p>
-          <div className="flex justify-evenly font-bold">
-            <p>
-              <AiOutlinePhone className="mr-1 inline" />
-              062-408-1116
-            </p>
-            <a href="mailto:pawit.th@ku.th" className="underline">
-              <AiOutlineMail className="mr-1 inline" />
-              pawit.th@ku.th
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://github.com/PerthTheIamCat"
-              className="underline"
-            >
-              <AiOutlineGithub className="mr-1 inline" />
-              PerthTheIamCat
-            </a>
+      <div ref={ref} className={`a4-preview mb-20 ${sarabun.className}`}>
+        <div className="flex h-fit w-full flex-row items-center justify-evenly">
+          <div className="">
+            <Image
+              src="/images/image.png"
+              alt="Profile photo"
+              width={120}
+              height={120}
+              priority
+              className="h-36 w-28 rounded-xl border border-gray-300 object-cover shadow-sm"
+            />
+          </div>
+          <div className="w-4/5 py-4">
+            <h1 className="text-3xl font-bold">ภาวิต ทองคำ</h1>
+            <div className="mt-1">
+              <p>
+                103/59, หมู่ 11, ตำบลบางปลา, อำเภอบางพลี, จังหวัดสมุทรปราการ,
+                10540
+              </p>
+              <div className="flex justify-between font-bold">
+                <p>
+                  <AiOutlinePhone className="mr-1 inline" />
+                  062-408-1116
+                </p>
+                <a href="mailto:pawit.thongkum@gmail.com" className="underline">
+                  <AiOutlineMail className="mr-1 inline" />
+                  pawit.thongkum@gmail.com
+                </a>
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="https://github.com/PerthTheIamCat"
+                  className="underline"
+                >
+                  <AiOutlineGithub className="mr-1 inline" />
+                  PerthTheIamCat
+                </a>
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="https:www.pawit.dev"
+                  className="underline"
+                >
+                  <CiGlobe className="mr-1 inline" />
+                  pawit.dev
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="my-2 border-t-6 border-gray-400">
-          <div className="flex justify-between pt-3 text-sm">
-            <p>
-              <strong>
-                วันเกิด:.......................................................
-              </strong>
-              <span className="italic">27 สิงหาคม 2546</span>
-            </p>
-            <p>
-              <strong>
-                สัญชาติ:.......................................................................
-              </strong>{" "}
-              <span className="italic">ไทย</span>
+        <div className="my-1 border-t-6 border-gray-400">
+          <div className="my-2">
+            <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
+              สรุปโปรไฟล์
+            </h2>
+            <p className="indent-8 leading-relaxed">
+              นักศึกษาวิศวกรรมคอมพิวเตอร์และหัวหน้าทีมเทคนิค
+              มีประสบการณ์พัฒนาเว็บและโมบายแบบ End-to-End (React / Next.js,
+              React Native, TypeScript, Express.js, MySQL / PostgreSQL)
+              เน้นโครงสร้าง UI ที่สะอาด ออกแบบ API ชัดเจน ประสิทธิภาพ
+              และการดูแลรักษาต่อยอดง่าย
+              มองหาโอกาสในการมีส่วนร่วมในโปรเจกต์ที่มีความหมาย
+              และเติบโตในฐานะนักพัฒนา
             </p>
           </div>
           <div className="my-3">
@@ -77,34 +103,16 @@ const ResumePaperEN = forwardRef<HTMLDivElement>((props, ref) => {
                 หัวหน้าทีมเทคนิคของชมรม Cybergeek
                 ดูแลโปรเจกต์ด้านเทคโนโลยีและให้คำแนะนำแก่รุ่นน้อง
               </li>
-            </ul>
-            <p className="mt-2 flex flex-row justify-between">
-              <strong className="flex items-center gap-4">
-                <PiDiamondsFourFill />
-                โรงเรียนพูลเจริญวิทยาคม.............................................................................................................
-              </strong>
-              <span className="italic">2559 - 2565</span>
-            </p>
-            <div className="flex flex-row justify-between text-sm italic">
-              <p className="indent-8">
-                หลักสูตรวิทย์-คณิต (Mini English Program - MEP)
-              </p>
-              <p>จังหวัดสมุทรปราการ</p>
-            </div>
-            <ul className="mt-2 ml-16 list-disc">
-              <li>สำเร็จการศึกษาจากโปรแกรม MEP</li>
               <li>
-                เรียนวิชา คณิตศาสตร์ วิทยาศาสตร์ และคอมพิวเตอร์ เป็นภาษาอังกฤษ
-              </li>
-              <li>
-                <strong>GPA:</strong> 3.86 / 4.00
+                <strong>เกรดเฉลี่ยปัจจุบัน :</strong> 3.54 / 4.00
+                (เกียรนิยมอันดับ 1)
               </li>
             </ul>
           </div>
 
           <div>
             <h2 className="mb-2 bg-gray-100 py-2 text-center text-xl font-bold underline underline-offset-4">
-              ประสบการณ์
+              กิจกรรม
             </h2>
             <p className="flex flex-row justify-between">
               <strong className="flex items-center gap-4">

@@ -3,8 +3,9 @@ import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-const ResumeEN = dynamic(() => import("@/components/resume/ResumeEN"));
-const ResumeTH = dynamic(() => import("@/components/resume/ResumeTH"));
+
+const CV_EN = dynamic(() => import("@/components/cv/CV_EN"));
+const CV_TH = dynamic(() => import("@/components/cv/CV_TH"));
 
 export default function ResumePage() {
   const resumeRef = useRef<HTMLDivElement>(null);
@@ -13,18 +14,18 @@ export default function ResumePage() {
 
   const handlePrint = useReactToPrint({
     contentRef: resumeRef,
-    documentTitle: `Pawit_Thongkum_Resume_${selectedLanguage.toUpperCase()}`,
+    documentTitle: `Pawit_Thongkum_CV_${selectedLanguage.toUpperCase()}`,
   });
 
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex items-center justify-center gap-5">
         <button
-          title="Download Resume"
-          onClick={() => router.push("/cv")}
+          title="See my resume"
+          onClick={() => router.push("/resume")}
           className="my-10 w-full max-w-fit cursor-pointer rounded-full border-2 border-white px-10 py-2 md:px-20"
         >
-          See my CV
+          See my resume
         </button>
 
         <button
@@ -32,7 +33,7 @@ export default function ResumePage() {
           onClick={handlePrint}
           className="my-10 w-full max-w-fit cursor-pointer rounded-full border-2 border-white px-10 py-2 md:px-20"
         >
-          Download Resume
+          Download CV
         </button>
         <div className="relative flex w-20 justify-evenly rounded-full border-2 py-2">
           <div
@@ -63,9 +64,9 @@ export default function ResumePage() {
         </div>
       </div>
       {selectedLanguage === "en" ? (
-        <ResumeEN ref={resumeRef} />
+        <CV_EN ref={resumeRef} />
       ) : (
-        <ResumeTH ref={resumeRef} />
+        <CV_TH ref={resumeRef} />
       )}
     </div>
   );
