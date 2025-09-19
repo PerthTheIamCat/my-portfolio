@@ -17,7 +17,7 @@ const ResumePaperEN = forwardRef<HTMLDivElement>((props, ref) => {
         <div className="flex h-fit w-full flex-row items-center justify-evenly">
           <div className="">
             <Image
-              src="/images/image.png"
+              src="/images/profiles/image.png"
               alt="Profile photo"
               width={120}
               height={120}
@@ -29,8 +29,7 @@ const ResumePaperEN = forwardRef<HTMLDivElement>((props, ref) => {
             <h1 className="text-3xl font-bold">PAWIT THONGKUM</h1>
             <div className="mt-1">
               <p>
-                103/59, Moo 11, Bang Pla Subdistrict, Bang Phli District, Samut
-                Prakan, 10540
+                Bang Pla Subdistrict, Bang Phli District, Samut Prakan, 10540
               </p>
               <div className="flex justify-between text-[15px] font-bold">
                 <p>

@@ -24,17 +24,20 @@ const CV_EN = forwardRef<HTMLDivElement>((props, ref) => {
                 </h1>
                 <div className="mt-1 text-center">
                   <p>
-                    103/59, Moo 11, Bang Pla Subdistrict, Bang Phli District,
-                    Samut Prakan, 10540
+                    Bang Pla Subdistrict, Bang Phli District, Samut Prakan,
+                    10540
                   </p>
                   <div className="flex justify-between font-bold">
                     <p>
                       <AiOutlinePhone className="mr-1 inline" />
                       062-408-1116
                     </p>
-                    <a href="mailto:pawit.th@ku.th" className="underline">
+                    <a
+                      href="mailto:pawit.thongkum@gmail.com"
+                      className="underline"
+                    >
                       <AiOutlineMail className="mr-1 inline" />
-                      pawit.th@ku.th
+                      pawit.thongkum@gmail.com
                     </a>
                     <a
                       rel="noopener noreferrer"

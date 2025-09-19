@@ -21,18 +21,18 @@ const CV_TH = forwardRef<HTMLDivElement>((props, ref) => {
               <div className="w-full py-8">
                 <h1 className="text-center text-4xl font-bold">ภาวิต ทองคำ</h1>
                 <div className="mt-1 text-center">
-                  <p>
-                    103/59, หมู่ 11, ตำบล บางปลา, อำเภอ บางพลี, จังหวัด
-                    สมุทรปราการ, 10540
-                  </p>
+                  <p>ตำบล บางปลา, อำเภอ บางพลี, จังหวัด สมุทรปราการ, 10540</p>
                   <div className="flex justify-between font-bold">
                     <p>
                       <AiOutlinePhone className="mr-1 inline" />
                       062-408-1116
                     </p>
-                    <a href="mailto:pawit.th@ku.th" className="underline">
+                    <a
+                      href="mailto:pawit.thongkum@gmail.com"
+                      className="underline"
+                    >
                       <AiOutlineMail className="mr-1 inline" />
-                      pawit.th@ku.th
+                      pawit.thongkum@gmail.com
                     </a>
                     <a
                       rel="noopener noreferrer"
