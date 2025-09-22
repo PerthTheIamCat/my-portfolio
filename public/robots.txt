@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://localhost:3000
+Host: https://www.pawit.dev
 
 # Sitemaps
 Sitemap: https://www.pawit.dev/sitemap.xml
