@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
+import FadeInDiv from "@/animation/FadeInDiv";
+import SpringFormAbove from "@/animation/SpringFromAbove";
 
 export default function ProjectMoneyMind() {
   return (
-    <div className="flex min-h-screen w-full justify-center">
-      <div className="flex h-fit w-full max-w-4/5 flex-col-reverse items-center gap-6 p-4 md:max-h-1/3 md:flex-row md:justify-center">
+    <SpringFormAbove className="flex min-h-screen w-full justify-center">
+      <FadeInDiv className="flex h-fit w-full max-w-4/5 flex-col-reverse items-center gap-6 p-4 md:max-h-1/3 md:flex-row md:justify-center">
         <div className="flex flex-col md:w-1/2">
           <h1 className="text-4xl">MoneyMind</h1>
           <p className="text-lg">
@@ -30,7 +32,7 @@ export default function ProjectMoneyMind() {
           priority
           className="h-[250px] w-[250px] scale-75 md:h-[300px] md:w-[300px] md:scale-100"
         />
-      </div>
-    </div>
+      </FadeInDiv>
+    </SpringFormAbove>
   );
 }

@@ -8,7 +8,7 @@ interface FadeInDivProps extends HTMLMotionProps<"div"> {
   delay?: number;
 }
 
-export default function FadeInDiv({
+export default function SpringFormAbove({
   children,
   className,
   offsetY = -100,
