@@ -14,13 +14,9 @@ export default function LayoutWrapper({
   const isHome = pathname === "/";
 
   return (
-    <div
-      className={`grid antialiased ${
-        isHome ? "grid-rows-[1fr_100px]" : "grid-rows-[100px_1fr_100px]"
-      }`}
-    >
+    <div className="flex min-h-screen flex-col antialiased">
       {!isHome && <Navbar />}
-      {children}
+      <main className="flex-1">{children}</main>
       <Footer />
     </div>
   );

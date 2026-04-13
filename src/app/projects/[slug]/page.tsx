@@ -1,8 +1,15 @@
 // src/app/projects/[slug]/page.tsx
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { projects } from "@/data/projects";
-import Loading from "@/app/loading";
-import ProjectMoneyMind from "@/components/projects/project_moneymind";
+import ProjectMoneyMindLoading from "@/components/projects/project_moneymind_loading";
+
+const ProjectMoneyMind = dynamic(
+  () => import("@/components/projects/project_moneymind"),
+  {
+    loading: () => <ProjectMoneyMindLoading />,
+  },
+);
 
 export async function generateStaticParams() {
   return projects.map((p) => ({
@@ -21,6 +28,7 @@ export async function generateMetadata({
   );
   return {
     title: proj ? proj.name : "Unknown Project",
+    description: proj ? proj.description : "No description available.",
   };
 }
 
@@ -32,7 +40,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   return (
     <div className="flex min-h-screen w-full">
-      {slug === "moneymind" ? <ProjectMoneyMind /> : <Loading />}
+      {slug === "moneymind" ? <ProjectMoneyMind /> : <ProjectMoneyMindLoading />}
     </div>
   );
 }

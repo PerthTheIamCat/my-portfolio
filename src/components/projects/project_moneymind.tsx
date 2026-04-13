@@ -34,7 +34,10 @@ const techStack = [
 export default function ProjectMoneyMind() {
   return (
     <SpringFromAbove className="mt-20 flex min-h-screen w-full flex-col items-center px-4 pb-16 md:px-8">
-      <FadeInDiv className="grid w-full max-w-7xl gap-10 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/10 backdrop-blur md:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] md:p-10">
+      <FadeInDiv
+        delay={0.05}
+        className="grid w-full max-w-7xl gap-10 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/10 backdrop-blur md:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] md:p-10"
+      >
         <div className="flex flex-col justify-center gap-6">
           <span className="inline-flex w-fit rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs tracking-[0.28em] text-white/60 uppercase">
             Featured Project
@@ -78,62 +81,69 @@ export default function ProjectMoneyMind() {
         </div>
       </FadeInDiv>
 
-      <section className="mt-12 w-full max-w-7xl">
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-          <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/10 backdrop-blur">
-            <p className="text-xs tracking-[0.28em] text-white/50 uppercase">
-              Tech Stack
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold md:text-3xl">
-              Built with the app stack from the project
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65 md:text-base">
-              The stack below reflects the actual project implementation
-              documented in my CV: a mobile app built with React Native and a
-              backend powered by Express.js and MySQL.
-            </p>
+      <FadeInDiv delay={0.2} className="mt-12 w-full max-w-7xl">
+        <section>
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
+            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/10 backdrop-blur">
+              <p className="text-xs tracking-[0.28em] text-white/50 uppercase">
+                Tech Stack
+              </p>
+              <h2 className="mt-2 text-2xl font-semibold md:text-3xl">
+                Built with the app stack from the project
+              </h2>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65 md:text-base">
+                The stack below reflects the actual project implementation
+                documented in my CV: a mobile app built with React Native and a
+                backend powered by Express.js and MySQL.
+              </p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {["React Native", "Express.js", "MySQL"].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/10 bg-slate-950/60 px-3 py-1 text-xs text-white/75"
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["React Native", "Express.js", "MySQL"].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/10 bg-slate-950/60 px-3 py-1 text-xs text-white/75"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {techStack.map((item, index) => (
+                <FadeInDiv
+                  key={item.title}
+                  delay={0.1 + index * 0.08}
+                  className="rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-5 shadow-md shadow-black/10"
                 >
-                  {item}
-                </span>
+                  <article>
+                    <h3 className="text-lg font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-white/60">
+                      {item.description}
+                    </p>
+                  </article>
+                </FadeInDiv>
               ))}
             </div>
           </div>
+        </section>
+      </FadeInDiv>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {techStack.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-5 shadow-md shadow-black/10"
-              >
-                <h3 className="text-lg font-semibold text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-white/60">
-                  {item.description}
-                </p>
-              </article>
-            ))}
+      <FadeInDiv delay={0.3} className="w-full max-w-7xl">
+        <section>
+          <div className="mt-12 mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs tracking-[0.28em] text-white/50 uppercase">
+                Gallery Preview
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section className="w-full max-w-7xl">
-        <div className="mt-12 mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs tracking-[0.28em] text-white/50 uppercase">
-              Gallery Preview
-            </p>
-          </div>
-        </div>
-
-        <ProjectMoneyMindGallery images={galleryImages} />
-      </section>
+          <ProjectMoneyMindGallery images={galleryImages} />
+        </section>
+      </FadeInDiv>
     </SpringFromAbove>
   );
 }

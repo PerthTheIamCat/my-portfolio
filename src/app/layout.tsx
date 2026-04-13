@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const kanit = Kanit({
-  subsets: ["latin"],
+  subsets: ["latin", "thai"],
   weight: ["400", "700"],
   variable: "--font-kanit",
 });
