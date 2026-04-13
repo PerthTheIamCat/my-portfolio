@@ -1,11 +1,8 @@
 // src/app/projects/[slug]/page.tsx
 import { Metadata } from "next";
 import { projects } from "@/data/projects";
-import dynamic from "next/dynamic";
 import Loading from "@/app/loading";
-const ProjectMoneyMind = dynamic(
-  () => import("@/components/projects/project_moneymind"),
-);
+import ProjectMoneyMind from "@/components/projects/project_moneymind";
 
 export async function generateStaticParams() {
   return projects.map((p) => ({

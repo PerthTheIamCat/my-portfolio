@@ -16,12 +16,12 @@ export default function AboutMe() {
       >
         <div className="flex flex-col self-center md:pl-44">
           <h1 className="text-xl font-bold">Hello, I&apos;m Pawit</h1>
-          <h1 className="bg-gradient-to-br from-[rgba(102,204,255,1)] to-[rgba(255,153,255,0.8)] bg-clip-text text-2xl font-bold text-transparent md:text-9xl">
+          <h1 className="bg-gradient-to-br from-[rgba(102,204,255,1)] to-[rgba(255,153,255,0.8)] bg-clip-text text-2xl font-bold text-transparent md:text-8xl">
             Full Stack Developer
           </h1>
         </div>
         <Image
-          src={"/images/profiles/image.png"}
+          src={"/images/profiles/image2.png"}
           width={300}
           height={400}
           alt="profile image"

@@ -32,8 +32,7 @@ export default function SlideBar({
   const SWIPE_VELOCITY_THRESHOLD = 0.3; // px/ms
   const router = useRouter();
 
-  // Helper to scroll to a given index & update centeredIndex (and callback)
-  const scrollToIndex = useCallback(
+  const scrollItemIntoView = useCallback(
     (idx: number) => {
       if (!containerRef.current) return;
       if (idx < 0 || idx >= projects.length) return;
@@ -47,16 +46,21 @@ export default function SlideBar({
           block: "nearest",
           inline: "center",
         });
-        setCenteredIndex(idx);
-        if (onIndexChange) {
-          onIndexChange(idx);
-        }
       }
     },
-    [projects, onIndexChange],
+    [projects],
   );
 
-  const handleScroll = () => {
+  // Helper to scroll to a given index and update centeredIndex
+  const scrollToIndex = useCallback(
+    (idx: number) => {
+      scrollItemIntoView(idx);
+      setCenteredIndex(idx);
+    },
+    [scrollItemIntoView],
+  );
+
+  const handleScroll = useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
     const { left, width } = container.getBoundingClientRect();
@@ -76,11 +80,15 @@ export default function SlideBar({
       }
     });
     setCenteredIndex(closestIdx);
-  };
+  }, []);
 
   useEffect(() => {
-    handleScroll();
-  }, [projects]);
+    // Let the first paint settle before measuring the centered item.
+    const frame = requestAnimationFrame(() => {
+      handleScroll();
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [handleScroll]);
 
   useEffect(() => {
     let idx = selectIndex;
@@ -88,9 +96,9 @@ export default function SlideBar({
       idx = projects.findIndex((p) => p.name === selectedProject.name);
     }
     if (idx != null && idx >= 0) {
-      scrollToIndex(idx);
+      scrollItemIntoView(idx);
     }
-  }, [selectIndex, selectedProject, projects, scrollToIndex]);
+  }, [selectIndex, selectedProject, projects, scrollItemIntoView]);
 
   useEffect(() => {
     if (onIndexChange) onIndexChange(centeredIndex);
@@ -186,7 +194,7 @@ export default function SlideBar({
   }, [enableGlobalSwipe, finalizeSwipe]);
 
   return (
-    <div className="sticky top-0 z-10 h-fit w-full overflow-hidden py-4 backdrop-blur-xl">
+    <div className="sticky top-0 z-50 h-fit w-full overflow-hidden py-4 backdrop-blur-xl">
       <div
         ref={containerRef}
         onScroll={handleScroll}

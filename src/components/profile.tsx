@@ -91,8 +91,12 @@ export default function Profile() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(false);
-  }, [isLoading]);
+    // Let the first client paint happen before hiding the loading shell.
+    const frame = requestAnimationFrame(() => {
+      setIsLoading(false);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   if (isLoading) {
     return <Loading />;
@@ -159,7 +163,7 @@ export default function Profile() {
             alt="profile image"
             width={300}
             height={300}
-            className="rounded-full"
+            className="h-auto w-auto rounded-full"
             priority
           />
         </motion.div>

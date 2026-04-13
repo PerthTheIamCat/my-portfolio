@@ -1,12 +1,17 @@
 import { motion } from "framer-motion";
 
 export function StarField({ count = 20 }: { count?: number }) {
+  const seededRandom = (seed: number) => {
+    const value = Math.sin(seed) * 10000;
+    return value - Math.floor(value);
+  };
+
   const stars = Array.from({ length: count }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 4 + 1,
-    delay: Math.random() * 5,
+    x: seededRandom(i * 4 + 1) * 100,
+    y: seededRandom(i * 4 + 2) * 100,
+    size: seededRandom(i * 4 + 3) * 4 + 1,
+    delay: seededRandom(i * 4 + 4) * 5,
   }));
 
   return (
