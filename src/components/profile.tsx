@@ -183,7 +183,7 @@ export default function Profile() {
         className="flex w-full items-center justify-center"
       >
         <button
-          className="group mt-10 w-full max-w-fit cursor-pointer flex justify-center rounded-full border-2 border-white px-10 py-2 md:px-20"
+          className="group mt-10 flex w-full max-w-fit cursor-pointer justify-center rounded-full border-2 border-white px-10 py-2 md:px-20"
           onClick={() => {
             router.push("/resume");
           }}

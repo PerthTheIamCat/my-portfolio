@@ -70,7 +70,7 @@ export default function AboutMe() {
         className="flex flex-col gap-6 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20 backdrop-blur lg:flex-row lg:items-center lg:justify-between"
       >
         <div className="max-w-2xl space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/45">
+          <p className="text-xs font-semibold tracking-[0.35em] text-white/45 uppercase">
             Next steps
           </p>
           <h2 className="text-2xl font-semibold text-white/95">

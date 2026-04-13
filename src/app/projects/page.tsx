@@ -5,8 +5,7 @@ import Loading from "../loading";
 
 export default function ProjectsIndex() {
   if (projects.length > 0) {
-    const slug = projects[0].name.replace(/\s+/g, "-").toLowerCase();
-    redirect(`/projects/${slug}`);
+    redirect(`/projects/${projects[0].slug}`);
   }
   return <Loading />;
 }

@@ -146,7 +146,7 @@ export default function Footer() {
                     </span>
                   </span>
                   <span className="mt-0.5 inline-flex items-center gap-1 text-[11px] font-semibold tracking-[0.2em] text-white/50 uppercase">
-                    <FiCopy className="text-[10px]" />
+                    <FiCopy className="mr-1 translate-x-1.5 text-[10px]" />
                     {isDiscordCopied ? "Copied" : "Copy ID"}
                   </span>
                 </button>
