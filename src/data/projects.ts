@@ -12,7 +12,7 @@ export const projects: Project[] = [
       "A personal finance mobile app for tracking income, expenses, and budgeting.",
   },
   {
-    slug: "kupon-v1",
+    slug: "kupon",
     name: "KUpon",
     description:
       "A digital food-coupon exchange system built to reduce waste and support sustainability.",
