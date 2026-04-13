@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio
+
+Personal portfolio website built with the Next.js App Router. It presents my background, selected projects, resume/CV pages, and contact links in one place.
+
+## Overview
+
+The site is organized around a few clear sections:
+
+- Home page with the main profile and an interactive visual
+- About Me summary with resume and project shortcuts
+- Project pages for featured case studies
+- Resume and CV pages in Thai and English
+- Contact page with email and social links
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- TypeScript 6
+- Tailwind CSS v4
+- Framer Motion
+- React Icons
+- Vercel Analytics
+- Vercel Speed Insights
+- next-sitemap
+
+## Pages
+
+| Route                 | Purpose                                                    |
+| --------------------- | ---------------------------------------------------------- |
+| `/`                   | Main landing page                                          |
+| `/aboutme`            | Short profile summary and quick links                      |
+| `/projects`           | Project index that redirects to the first featured project |
+| `/projects/moneymind` | MoneyMind case study                                       |
+| `/projects/kupon-v1`  | KUpon case study with v1 and v2 sections                   |
+| `/resume`             | Resume page                                                |
+| `/cv`                 | CV page                                                    |
+| `/contact`            | Contact page with mailto form and social links             |
+
+## Project Structure
+
+- `src/app/` App Router pages, layouts, loading states, and metadata
+- `src/components/` shared UI and page sections
+- `src/components/projects/` project-specific sections, galleries, and image helpers
+- `src/components/resume/` resume content in English and Thai
+- `src/components/cv/` CV content in English and Thai
+- `src/components/contact/` contact page content
+- `src/data/projects.ts` project registry used by the project slider and dynamic routes
+- `public/images/` profile photos and project assets
+- `next.config.ts` image and dev-origin configuration
 
 ## Getting Started
 
-First, run the development server:
+1. Install Bun if it is not already installed.
+2. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Start the development server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open the app at `http://localhost:3000`.
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `bun run dev` - start the local development server
+- `bun run build` - create a production build and generate the sitemap
+- `bun run start` - run the production build locally
+- `bun run lint` - run ESLint
+- `bun run format` - format the repo with Prettier
+- `bun run format:check` - verify formatting without writing files
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/projects` redirects to the first project listed in `src/data/projects.ts`.
+- KUpon assets are split by version in `public/images/KuponV1/` and `public/images/KuponV2/`.
+- `bun run build` also runs `next-sitemap` through the `postbuild` script.
+- Keep generated artifacts such as `public/sitemap-0.xml` out of manual edits unless they are intentionally being updated.
